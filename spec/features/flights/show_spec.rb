@@ -8,7 +8,7 @@ RSpec.describe "As a visitor", type: :feature do
     @southwest_1 = @southwest.flights.create(number: "SW1", date: "10/10/20", time: "1300", departure_city: "Minneapolis", arrival_city: "Nashville")
     @passenger_1 = Passenger.create(name: "Susie", age: 37)
     @passenger_2 = Passenger.create(name: "Bill", age: 7)
-    @passenger_3 = Passenger.create(name: "Tom", age: 23)
+    @passenger_3 = Passenger.create(name: "Tom", age: 18)
     @passenger_4 = Passenger.create(name: "Phil", age: 53)
     @passenger_5 = Passenger.create(name: "Becky", age: 10)
 
