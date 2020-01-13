@@ -6,10 +6,8 @@ class FlightsController < ApplicationController
 
   def new
     passenger = Passenger.find(params[:id])
-    flight = Flight.where(number: params[:number]).first
+    flight = Flight.where(number: params[:flight][:number])
     passenger.flights << flight
     redirect_to "/passengers/#{passenger.id}"
     end
   end
-  end
-end
