@@ -2,7 +2,7 @@
 
 <%@passenger.flights.each do |flight| %>
   <section id="flight-<%=flight.id %>">
-    <p><%= link_to "#{flight.number}", "/flights/#{flight.id}" %></p>
+    <p>Flight Number: <%= link_to "#{flight.number}", "/flights/#{flight.id}" %></p>
   </section>
 <%end %>
 
