@@ -1,0 +1,7 @@
+<h1><%=@passenger.name %></h1>
+
+<%@passenger.flights.each do |flight| %>
+  <section id="flight-<%=flight.id %>">
+    <p><%= link_to "#{flight.number}", "/flights/#{flight.id}" %></p>
+  </section>
+<%end %>
