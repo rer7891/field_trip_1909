@@ -1,0 +1,5 @@
+<%= form_for  [@passenger, Flight.new], url: "/passengers/#{@passenger.id}/flights/new" do |f| %>
+  <%= f.label :number %>
+  <%= f.text_field :number %>
+  <%= f.submit "Add Flight"%>
+<% end %>
