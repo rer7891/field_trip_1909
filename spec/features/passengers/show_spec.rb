@@ -13,7 +13,7 @@ RSpec.describe "As a visitor", type: :feature do
       american_1 = american.flights.create(number: "AM1", date: "01/09/20", time: "1120", departure_city: "San Fransisco", arrival_city: "Chicago")
       american_2 = american.flights.create(number: "AM2", date: "03/15/21", time: "100", departure_city: "Cincinatti", arrival_city: "Austin")
 
-      passenger_1 = Passenger.create!(name: "Susie", age: 37)
+      passenger_1 = Passenger.create(name: "Susie", age: 37)
       passenger_2 = Passenger.create(name: "Tom", age: 56)
 
       passenger_1.flights << [southwest_1, southwest_2, american_1]
@@ -45,6 +45,16 @@ RSpec.describe "As a visitor", type: :feature do
       end
 
       expect(page).to_not have_link(american_2.number)
+    end
+    it "can see a form to add a flight to a passenger" do
+        american = Airline.create(name: "American")
+        passenger_1 = Passenger.create(name: "Susie", age: 37)
+        american_1 = american.flights.create(number: "AM1", date: "01/09/20", time: "1120", departure_city: "San Fransisco", arrival_city: "Chicago")
+
+        visit "/passengers/#{passenger_1.id}"
+
+        fill_in "Number", with: "AM1"
+        click_on "Add Flight"
     end
   end
 end
