@@ -37,4 +37,13 @@ RSpec.describe "As a visitor", type: :feature do
     expect(page).not_to have_content(@american.name)
     expect(page).not_to have_content(@passenger_4.name)
   end
+  it "can see a list counting minors and adults on the flight" do
+    passenger_5 = Passenger.create(name: "Becky", age: 10)
+    passenger_6 = Passenger.create(name: "Sarah", age: 23)
+
+    visit "/flights/#{@southwest_1.id}"
+
+    expect(page).to have_content("There are 3 adults on this flight")
+    expect(page).to have_content("There are 2 minors on this flight")
+  end
 end
