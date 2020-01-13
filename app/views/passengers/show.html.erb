@@ -5,3 +5,5 @@
     <p><%= link_to "#{flight.number}", "/flights/#{flight.id}" %></p>
   </section>
 <%end %>
+
+<p>Add Flight: <%=render partial: "flight_form", locals: {passenger: @passenger} %></p>
