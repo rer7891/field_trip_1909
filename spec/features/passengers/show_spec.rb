@@ -49,12 +49,16 @@ RSpec.describe "As a visitor", type: :feature do
     it "can see a form to add a flight to a passenger" do
         american = Airline.create(name: "American")
         passenger_1 = Passenger.create(name: "Susie", age: 37)
-        american_1 = american.flights.create(number: "AM1", date: "01/09/20", time: "1120", departure_city: "San Fransisco", arrival_city: "Chicago")
+        american_4 = american.flights.create(number: "AM1", date: "01/09/20", time: "1120", departure_city: "San Fransisco", arrival_city: "Chicago")
 
         visit "/passengers/#{passenger_1.id}"
 
         fill_in "Number", with: "AM1"
         click_on "Add Flight"
+        expect(current_path).to eq("/passengers/#{passenger_1.id}")
+        within "#flight-#{american_4.id}" do
+          expect(page).to have_link(american_4.number)
+        end
     end
   end
 end
