@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/airlines/:id', to: 'airlines#show'
 
   get '/flights/:id', to: 'flights#show'
+
+  get '/passengers/:id', to: 'passengers#show'
 end
